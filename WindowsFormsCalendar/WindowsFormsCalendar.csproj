@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{25649F08-3046-4891-ADB8-7EA787B57063}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WindowsFormsCalendar</RootNamespace>
+    <AssemblyName>WindowsFormsCalendar</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\WindowsFormsCalendar.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CalendarColorTable.cs" />
+    <Compile Include="Enums\Corners.cs" />
+    <Compile Include="Enums\MonthViewSelection.cs" />
+    <Compile Include="EventArgs\CalendarDayEventArgs.cs" />
+    <Compile Include="CalendarDayTop.cs">
+    </Compile>
+    <Compile Include="CalendarHighlightRange.cs" />
+    <Compile Include="EventArgs\CalendarItemCancelEventArgs.cs" />
+    <Compile Include="EventArgs\CalendarItemEventArgs.cs" />
+    <Compile Include="Enums\CalendarItemImageAlign.cs" />
+    <Compile Include="EventArgs\CalendarLoadEventArgs.cs" />
+    <Compile Include="Renderers\CalendarProfessionalRenderer.cs">
+    </Compile>
+    <Compile Include="Renderers\CalendarRenderer.cs" />
+    <Compile Include="UserControls\Calendar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CalendarDay.cs" />
+    <Compile Include="Enums\CalendarDaysMode.cs" />
+    <Compile Include="CalendarItem.cs" />
+    <Compile Include="CalendarItemCollection.cs" />
+    <Compile Include="EventArgs\CalendarRendererDayEventArgs.cs">
+    </Compile>
+    <Compile Include="EventArgs\CalendarRendererEventArgs.cs" />
+    <Compile Include="EventArgs\CalendarRendererBoxEventArgs.cs">
+    </Compile>
+    <Compile Include="EventArgs\CalendarRendererItemBoundsEventArgs.cs">
+    </Compile>
+    <Compile Include="EventArgs\CalendarRendererItemEventArgs.cs" />
+    <Compile Include="EventArgs\CalendarRendererTimeUnitEventArgs.cs">
+    </Compile>
+    <Compile Include="CalendarSelectableElement.cs" />
+    <Compile Include="Renderers\CalendarSystemRenderer.cs" />
+    <Compile Include="UserControls\CalendarTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enums\CalendarTimeFormat.cs" />
+    <Compile Include="Enums\CalendarTimeScale.cs" />
+    <Compile Include="CalendarTimeScaleUnit.cs" />
+    <Compile Include="CalendarWeek.cs" />
+    <Compile Include="Enums\CalendarState.cs" />
+    <Compile Include="Enums\CalendarScrollBars.cs" />
+    <Compile Include="ICalendarSelectableElement.cs" />
+    <Compile Include="ISelectableElement.cs" />
+    <Compile Include="EventArgs\MonthViewBoxEventArgs.cs" />
+    <Compile Include="MonthViewDay.cs" />
+    <Compile Include="EventArgs\MonthViewMontEventArgs.cs" />
+    <Compile Include="MonthViewMonth.cs" />
+    <Compile Include="UserControls\MonthView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
