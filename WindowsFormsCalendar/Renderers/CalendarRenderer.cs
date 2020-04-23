@@ -491,6 +491,10 @@ namespace WindowsFormsCalendar
             int unitIndex = Convert.ToInt32(Math.Floor(totalmins / duration));
             double module = Convert.ToInt32(Math.Floor(totalmins % duration));
             
+            if(unitIndex >= Calendar.Days[0].TimeUnits.Length)
+            {
+                unitIndex = Calendar.Days[0].TimeUnits.Length - 1;
+            }
             CalendarTimeScaleUnit unit = Calendar.Days[0].TimeUnits[unitIndex];
 
             int minuteHeight = Convert.ToInt32(Convert.ToDouble(unit.Bounds.Height) / duration);
@@ -795,7 +799,7 @@ namespace WindowsFormsCalendar
                         DateTime date1 = item.StartDate;
                         DateTime date2 = item.EndDate;
 
-                        int basemin = day.StartHour * 60;
+                        int basemin = day.Calendar.StartRenderHour * 60;
                         int indexStart = Convert.ToInt32(Math.Floor((date1.TimeOfDay.TotalMinutes - basemin) / unitDurationMinutes));
                         int indexEnd = Convert.ToInt32(Math.Ceiling((date2.TimeOfDay.TotalMinutes - basemin) / unitDurationMinutes));
 

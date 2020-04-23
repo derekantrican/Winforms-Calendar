@@ -666,9 +666,9 @@ namespace WindowsFormsCalendar
             get { return _weeks; }
         }
 
-        public int StartRenderHour { get; private set; } = 0;
+        internal int StartRenderHour { get; private set; } = 0;
 
-        public int EndRenderHour { get; private set; } = 0;
+        internal int EndRenderHour { get; private set; } = 24;
 
         #endregion
 
@@ -1091,7 +1091,10 @@ namespace WindowsFormsCalendar
         {
             this.StartRenderHour = startHour;
             this.EndRenderHour = endHour;
-            this.UpdateDaysAndWeeks();
+            foreach(var day in Days)
+            {
+                day.UpdateUnits(startHour, endHour);
+            }
         }
 
         /// <summary>
@@ -1404,11 +1407,7 @@ namespace WindowsFormsCalendar
 
             for (int i = 0; i < Days.Length; i++)
             {
-                Days[i] = new CalendarDay(this, ViewStart.AddDays(-preDays + i), i)
-                {
-                    StartHour = StartRenderHour,
-                    EndHour = EndRenderHour
-                };
+                Days[i] = new CalendarDay(this, ViewStart.AddDays(-preDays + i), i);
             }
 
 

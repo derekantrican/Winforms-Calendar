@@ -26,10 +26,11 @@ namespace TestHarness
         {
             InitializeComponent();
 
-            CalendarItem item = new CalendarItem( this.calendar1, DateTime.Now, DateTime.Now, "TEST" );
+            CalendarItem item = new CalendarItem(this.calendar1, new DateTime(2020, 4, 24, 18, 0, 0), new DateTime(2020, 4, 25, 12, 0, 0), "TEST");
+            calendar1.Items.Add(item);
+            calendar1.SetRenderHourRange(9, 20);
 
-            _items.Add( item );
-
+            //_items.Add(item);
         }
 
         #region Calendar Methods
