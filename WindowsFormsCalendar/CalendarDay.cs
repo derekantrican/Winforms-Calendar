@@ -190,6 +190,10 @@ namespace WindowsFormsCalendar
             get { return _overlowEndSelected; }
         }
 
+        public int StartHour { get; set; } = 0;
+
+        public int EndHour { get; set; } = 24;
+
 
         #endregion
 
@@ -294,9 +298,9 @@ namespace WindowsFormsCalendar
                 default: throw new NotImplementedException("TimeScale not supported");
             }
 
-            _timeUnits = new CalendarTimeScaleUnit[24 * factor];
-            
-            int hourSum = 0;
+            _timeUnits = new CalendarTimeScaleUnit[(EndHour - StartHour) * factor];
+
+            int hourSum = StartHour;
             int minSum = 0;
 
             for (int i = 0; i < _timeUnits.Length; i++)
