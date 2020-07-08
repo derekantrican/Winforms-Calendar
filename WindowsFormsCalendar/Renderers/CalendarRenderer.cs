@@ -486,10 +486,15 @@ namespace WindowsFormsCalendar
             CalendarDay fisrtDay = Calendar.Days[0];
             CalendarTimeScaleUnit firstUnit = fisrtDay.TimeUnits[0];
             double duration = Convert.ToDouble(firstUnit.Duration.TotalMinutes);
-            double totalmins = time.TotalMinutes;
+            double basemins = Calendar.StartRenderHour * 60;
+            double totalmins = time.TotalMinutes - basemins;
             int unitIndex = Convert.ToInt32(Math.Floor(totalmins / duration));
             double module = Convert.ToInt32(Math.Floor(totalmins % duration));
             
+            if(unitIndex >= Calendar.Days[0].TimeUnits.Length)
+            {
+                unitIndex = Calendar.Days[0].TimeUnits.Length - 1;
+            }
             CalendarTimeScaleUnit unit = Calendar.Days[0].TimeUnits[unitIndex];
 
             int minuteHeight = Convert.ToInt32(Convert.ToDouble(unit.Bounds.Height) / duration);
@@ -794,8 +799,9 @@ namespace WindowsFormsCalendar
                         DateTime date1 = item.StartDate;
                         DateTime date2 = item.EndDate;
 
-                        int indexStart = Convert.ToInt32(Math.Floor(date1.TimeOfDay.TotalMinutes / unitDurationMinutes));
-                        int indexEnd = Convert.ToInt32(Math.Ceiling(date2.TimeOfDay.TotalMinutes / unitDurationMinutes));
+                        int basemin = day.Calendar.StartRenderHour * 60;
+                        int indexStart = Convert.ToInt32(Math.Floor((date1.TimeOfDay.TotalMinutes - basemin) / unitDurationMinutes));
+                        int indexEnd = Convert.ToInt32(Math.Ceiling((date2.TimeOfDay.TotalMinutes - basemin) / unitDurationMinutes));
 
                         for (int i = 0; i < day.TimeUnits.Length; i++)
                         {

@@ -666,6 +666,10 @@ namespace WindowsFormsCalendar
             get { return _weeks; }
         }
 
+        internal int StartRenderHour { get; private set; } = 0;
+
+        internal int EndRenderHour { get; private set; } = 24;
+
         #endregion
 
         /// <summary>
@@ -1083,6 +1087,16 @@ namespace WindowsFormsCalendar
             ViewEnd = dateEnd;
         }
 
+        public void SetRenderHourRange(int startHour, int endHour)
+        {
+            this.StartRenderHour = startHour;
+            this.EndRenderHour = endHour;
+            foreach(var day in Days)
+            {
+                day.UpdateUnits(startHour, endHour);
+            }
+        }
+
         /// <summary>
         /// Returns a value indicating if the view range intersects the specified date range.
         /// </summary>
@@ -1391,8 +1405,10 @@ namespace WindowsFormsCalendar
 
             _days = new CalendarDay[span.Days];
 
-            for( int i = 0; i < Days.Length; i++ )
-                Days[i] = new CalendarDay( this, ViewStart.AddDays( -preDays + i ), i );
+            for (int i = 0; i < Days.Length; i++)
+            {
+                Days[i] = new CalendarDay(this, ViewStart.AddDays(-preDays + i), i);
+            }
 
 
             //Weeks
