@@ -1,0 +1,6 @@
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\WindowsFormsCalendar\bin\Debug\WindowsFormsCalendar.dll
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\WindowsFormsCalendar\bin\Debug\WindowsFormsCalendar.pdb
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\WindowsFormsCalendar\obj\Debug\WindowsFormsCalendar.csproj.AssemblyReference.cache
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\WindowsFormsCalendar\obj\Debug\WindowsFormsCalendar.csproj.CoreCompileInputs.cache
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\WindowsFormsCalendar\obj\Debug\WindowsFormsCalendar.dll
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\WindowsFormsCalendar\obj\Debug\WindowsFormsCalendar.pdb

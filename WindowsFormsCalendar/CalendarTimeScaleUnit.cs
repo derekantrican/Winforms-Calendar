@@ -19,8 +19,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Drawing;
 
 namespace WindowsFormsCalendar
 {
@@ -56,9 +54,9 @@ namespace WindowsFormsCalendar
         {
             get
             {
-                if( _date.Equals( DateTime.MinValue ) )
+                if (_date.Equals(DateTime.MinValue))
                 {
-                    _date = new DateTime( Day.Date.Year, Day.Date.Month, Day.Date.Day, Hours, Minutes, 0 );
+                    _date = new DateTime(Day.Date.Year, Day.Date.Month, Day.Date.Day, Hours, Minutes, 0);
                 }
 
                 return _date;
@@ -80,7 +78,7 @@ namespace WindowsFormsCalendar
         {
             get
             {
-                return new TimeSpan( 0, (int)Calendar.TimeScale, 0 );
+                return new TimeSpan(0, (int)Calendar.TimeScale, 0);
             }
         }
 
@@ -143,8 +141,8 @@ namespace WindowsFormsCalendar
         /// <param name="index">Index of the unit relative to the container day</param>
         /// <param name="hours">Hour of the unit</param>
         /// <param name="minutes">Minutes of the unit</param>
-        internal CalendarTimeScaleUnit( CalendarDay day, int index, int hours, int minutes )
-            : base( day.Calendar )
+        internal CalendarTimeScaleUnit(CalendarDay day, int index, int hours, int minutes)
+            : base(day.Calendar)
         {
             _day = day;
             _index = index;
@@ -164,7 +162,7 @@ namespace WindowsFormsCalendar
         /// </returns>
         public override string ToString()
         {
-            return string.Format( "[{0}] - {1}", Index, Date.ToShortTimeString() );
+            return string.Format("[{0}] - {1}", Index, Date.ToShortTimeString());
         }
 
         #endregion
@@ -177,15 +175,15 @@ namespace WindowsFormsCalendar
         /// <returns></returns>
         internal bool CheckHighlighted()
         {
-            for( int i = 0; i < Day.Calendar.HighlightRanges.Length; i++ )
+            for (int i = 0; i < Day.Calendar.HighlightRanges.Length; i++)
             {
                 CalendarHighlightRange range = Day.Calendar.HighlightRanges[i];
 
-                if( range.DayOfWeek != Date.DayOfWeek )
+                if (range.DayOfWeek != Date.DayOfWeek)
                     continue;
 
-                if( Date.TimeOfDay.CompareTo( range.StartTime ) >= 0
-                    && Date.TimeOfDay.CompareTo( range.EndTime ) < 0 )
+                if (Date.TimeOfDay.CompareTo(range.StartTime) >= 0
+                    && Date.TimeOfDay.CompareTo(range.EndTime) < 0)
                 {
                     return true;
                 }
@@ -198,7 +196,7 @@ namespace WindowsFormsCalendar
         /// Sets the value of the <see cref="Highlighted"/> property
         /// </summary>
         /// <param name="highlighted">Value of the property</param>
-        internal void SetHighlighted( bool highlighted )
+        internal void SetHighlighted(bool highlighted)
         {
             _highlighted = highlighted;
         }
@@ -207,7 +205,7 @@ namespace WindowsFormsCalendar
         /// Sets the value of the <see cref="Visible"/> property
         /// </summary>
         /// <param name="visible">Value indicating if the unit is currently visible on viewport</param>
-        internal void SetVisible( bool visible )
+        internal void SetVisible(bool visible)
         {
             _visible = visible;
         }
@@ -220,12 +218,12 @@ namespace WindowsFormsCalendar
         /// Adds the passing item.
         /// </summary>
         /// <param name="item">The item.</param>
-        internal void AddPassingItem( CalendarItem item )
+        internal void AddPassingItem(CalendarItem item)
         {
-            if( !PassingItems.Contains( item ) )
+            if (!PassingItems.Contains(item))
             {
-                PassingItems.Add( item );
-                Day.AddContainedItem( item );
+                PassingItems.Add(item);
+                Day.AddContainedItem(item);
             }
         }
 
@@ -233,16 +231,16 @@ namespace WindowsFormsCalendar
         /// Clears existance of item from this unit and it's corresponding day.
         /// </summary>
         /// <param name="item"></param>
-        internal void ClearItemExistance( CalendarItem item )
+        internal void ClearItemExistance(CalendarItem item)
         {
-            if( PassingItems.Contains( item ) )
+            if (PassingItems.Contains(item))
             {
-                PassingItems.Remove( item );
+                _ = PassingItems.Remove(item);
             }
 
-            if( Day.ContainedItems.Contains( item ) )
+            if (Day.ContainedItems.Contains(item))
             {
-                Day.ContainedItems.Remove( item );
+                _ = Day.ContainedItems.Remove(item);
             }
         }
 

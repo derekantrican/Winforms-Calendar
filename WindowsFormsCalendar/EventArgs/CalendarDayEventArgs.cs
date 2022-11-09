@@ -18,8 +18,6 @@
 */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace WindowsFormsCalendar
 {
@@ -27,7 +25,7 @@ namespace WindowsFormsCalendar
     /// Event data with a <see cref="CalendarDay"/> element
     /// </summary>
     public class CalendarDayEventArgs
-        :EventArgs
+        : EventArgs
     {
         /// <summary>
         /// Creates a new event with the specified day

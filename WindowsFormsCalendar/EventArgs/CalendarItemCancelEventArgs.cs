@@ -17,9 +17,6 @@
     along with indowsFormsCalendar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel;
 
 namespace WindowsFormsCalendar
@@ -34,7 +31,7 @@ namespace WindowsFormsCalendar
         /// Creates a new <see cref="CalendarItemEventArgs"/>
         /// </summary>
         /// <param name="item">Related Item</param>
-        public CalendarItemCancelEventArgs( CalendarItem item )
+        public CalendarItemCancelEventArgs(CalendarItem item)
         {
             _item = item;
         }

@@ -18,8 +18,6 @@
 */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 
 namespace WindowsFormsCalendar
@@ -37,11 +35,11 @@ namespace WindowsFormsCalendar
         #region Fields
 
         private Calendar _calendar;
-        
+
         private Rectangle _clip;
-        
+
         private Graphics _graphics;
-        
+
         private object _tag;
 
         #endregion
@@ -101,13 +99,13 @@ namespace WindowsFormsCalendar
         /// <param name="calendar">Calendar where painting</param>
         /// <param name="graphics">The graphics.</param>
         /// <param name="clipRectangle">The clip rectangle.</param>
-        public CalendarRendererEventArgs( Calendar calendar, Graphics graphics, Rectangle clipRectangle )
+        public CalendarRendererEventArgs(Calendar calendar, Graphics graphics, Rectangle clipRectangle)
         {
             _calendar = calendar;
             _graphics = graphics;
             _clip = clipRectangle;
 
-            if( _graphics != null )
+            if (_graphics != null)
             {
                 _graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
                 _graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
@@ -123,14 +121,14 @@ namespace WindowsFormsCalendar
         /// <param name="graphics">The graphics.</param>
         /// <param name="clipRectangle">The clip rectangle.</param>
         /// <param name="tag">The tag.</param>
-        public CalendarRendererEventArgs( Calendar calendar, Graphics graphics, Rectangle clipRectangle, object tag )
+        public CalendarRendererEventArgs(Calendar calendar, Graphics graphics, Rectangle clipRectangle, object tag)
         {
             _calendar = calendar;
             _graphics = graphics;
             _clip = clipRectangle;
             _tag = tag;
-            
-            if( _graphics != null )
+
+            if (_graphics != null)
             {
                 _graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
                 _graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
@@ -143,14 +141,14 @@ namespace WindowsFormsCalendar
         /// Copies the parameters from the specified <see cref="CalendarRendererEventArgs"/>
         /// </summary>
         /// <param name="original">The <see cref="WindowsFormsCalendar.CalendarRendererEventArgs"/> instance containing the event data.</param>
-        public CalendarRendererEventArgs( CalendarRendererEventArgs original )
+        public CalendarRendererEventArgs(CalendarRendererEventArgs original)
         {
             _calendar = original.Calendar;
             _graphics = original.Graphics;
             _clip = original.ClipRectangle;
             _tag = original.Tag;
 
-            if( _graphics != null )
+            if (_graphics != null)
             {
                 _graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
                 _graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;

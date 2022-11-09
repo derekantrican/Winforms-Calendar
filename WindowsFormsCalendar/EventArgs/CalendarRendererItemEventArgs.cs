@@ -17,10 +17,6 @@
     along with indowsFormsCalendar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace WindowsFormsCalendar
 {
     /// <summary>
@@ -50,8 +46,8 @@ namespace WindowsFormsCalendar
         /// </summary>
         /// <param name="original">The <see cref="WindowsFormsCalendar.CalendarRendererEventArgs"/> instance containing the event data.</param>
         /// <param name="item">The item.</param>
-        public CalendarRendererItemEventArgs( CalendarRendererEventArgs original, CalendarItem item )
-            : base( original )
+        public CalendarRendererItemEventArgs(CalendarRendererEventArgs original, CalendarItem item)
+            : base(original)
         {
             _item = item;
 

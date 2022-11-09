@@ -19,7 +19,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -78,7 +77,7 @@ namespace WindowsFormsCalendar
         /// </summary>
         public Rectangle BodyBounds
         {
-            get 
+            get
             {
                 return Rectangle.FromLTRB(Bounds.Left, DayTop.Bounds.Bottom, Bounds.Right, Bounds.Bottom);
             }
@@ -97,7 +96,7 @@ namespace WindowsFormsCalendar
         /// </summary>
         public Rectangle HeaderBounds
         {
-            get 
+            get
             {
                 return new Rectangle(Bounds.Left, Bounds.Top, Bounds.Width, Calendar.Renderer.DayHeaderHeight);
             }
@@ -120,7 +119,7 @@ namespace WindowsFormsCalendar
         /// </remarks>
         public bool SpecifiedOnView
         {
-            get 
+            get
             {
                 return Date.CompareTo(Calendar.ViewStart) >= 0 && Date.CompareTo(Calendar.ViewEnd) <= 0;
             }
@@ -255,7 +254,7 @@ namespace WindowsFormsCalendar
         /// <param name="selected">Value to pass to the property</param>
         internal void SetOverflowEndSelected(bool selected)
         {
-            _overlowEndSelected= selected;
+            _overlowEndSelected = selected;
         }
 
         /// <summary>
@@ -281,21 +280,20 @@ namespace WindowsFormsCalendar
         /// </summary>
         internal void UpdateUnits()
         {
-            int factor = 0;
-
+            int factor;
             switch (Calendar.TimeScale)
             {
-                case CalendarTimeScale.SixtyMinutes:    factor = 1;     break;
-                case CalendarTimeScale.ThirtyMinutes:   factor = 2;     break;
-                case CalendarTimeScale.FifteenMinutes:  factor = 4;     break;
-                case CalendarTimeScale.TenMinutes:      factor = 6;     break;
-                case CalendarTimeScale.SixMinutes:      factor = 10;    break;
-                case CalendarTimeScale.FiveMinutes:     factor = 12;    break;
+                case CalendarTimeScale.SixtyMinutes: factor = 1; break;
+                case CalendarTimeScale.ThirtyMinutes: factor = 2; break;
+                case CalendarTimeScale.FifteenMinutes: factor = 4; break;
+                case CalendarTimeScale.TenMinutes: factor = 6; break;
+                case CalendarTimeScale.SixMinutes: factor = 10; break;
+                case CalendarTimeScale.FiveMinutes: factor = 12; break;
                 default: throw new NotImplementedException("TimeScale not supported");
             }
 
             _timeUnits = new CalendarTimeScaleUnit[24 * factor];
-            
+
             int hourSum = 0;
             int minSum = 0;
 
@@ -320,7 +318,7 @@ namespace WindowsFormsCalendar
         /// </summary>
         internal void UpdateHighlights()
         {
-            if (TimeUnits == null) 
+            if (TimeUnits == null)
                 return;
 
             for (int i = 0; i < TimeUnits.Length; i++)
