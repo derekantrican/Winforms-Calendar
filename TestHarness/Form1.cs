@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using WindowsFormsCalendar;
@@ -26,9 +21,10 @@ namespace TestHarness
         {
             InitializeComponent();
 
-            CalendarItem item = new CalendarItem( this.calendar1, DateTime.Now, DateTime.Now, "TEST" );
+            CalendarItem item = new CalendarItem(this.calendar1, DateTime.Now, DateTime.Now, "TEST");
 
-            _items.Add( item );
+            _items.Add(item);
+            _items.Add(new CalendarItem(this.calendar1, DateTime.Now, DateTime.Now.AddDays(2), "TEST 2"));
 
         }
 
@@ -39,13 +35,13 @@ namespace TestHarness
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="WindowsFormsCalendar.CalendarLoadEventArgs"/> instance containing the event data.</param>
-        private void calendar1_LoadItems( object sender, CalendarLoadEventArgs e )
+        private void calendar1_LoadItems(object sender, CalendarLoadEventArgs e)
         {
-            foreach( CalendarItem calendarItem in _items )
+            foreach (CalendarItem calendarItem in _items)
             {
-                if( this.calendar1.ViewIntersects( calendarItem ) )
+                if (this.calendar1.ViewIntersects(calendarItem))
                 {
-                    this.calendar1.Items.Add( calendarItem );
+                    this.calendar1.Items.Add(calendarItem);
                 }
             }
         }
@@ -59,12 +55,36 @@ namespace TestHarness
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void monthView1_SelectionChanged( object sender, EventArgs e )
+        private void monthView1_SelectionChanged(object sender, EventArgs e)
         {
-            this.calendar1.SetViewRange( this.monthView1.SelectionStart.Date, this.monthView1.SelectionEnd.Date);
+            this.calendar1.SetViewRange(this.monthView1.SelectionStart.Date, this.monthView1.SelectionEnd.Date);
         }
 
         #endregion
 
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dayToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.monthView1.SelectionMode = MonthViewSelection.Day;
+        }
+
+        private void weekToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.monthView1.SelectionMode = MonthViewSelection.Week;
+        }
+
+        private void workWeekToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.monthView1.SelectionMode = MonthViewSelection.WorkWeek;
+        }
+
+        private void monthToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.monthView1.SelectionMode = MonthViewSelection.Month;
+        }
     }
 }
