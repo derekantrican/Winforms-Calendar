@@ -18,8 +18,6 @@
 */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 
 namespace WindowsFormsCalendar
@@ -68,7 +66,7 @@ namespace WindowsFormsCalendar
                     Bounds.Left,
                     Bounds.Top + Calendar.Renderer.DayHeaderHeight,
                     Calendar.Renderer.WeekHeaderWidth,
-                    Bounds.Height - Calendar.Renderer.DayHeaderHeight );
+                    Bounds.Height - Calendar.Renderer.DayHeaderHeight);
             }
         }
 

@@ -18,8 +18,6 @@
 */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace WindowsFormsCalendar
 {
@@ -92,7 +90,7 @@ namespace WindowsFormsCalendar
         /// <param name="day">The day.</param>
         /// <param name="startTime">The start time.</param>
         /// <param name="endTime">The end time.</param>
-        public CalendarHighlightRange( DayOfWeek day, TimeSpan startTime, TimeSpan endTime )
+        public CalendarHighlightRange(DayOfWeek day, TimeSpan startTime, TimeSpan endTime)
             : this()
         {
             _dayOfWeek = day;

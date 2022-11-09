@@ -18,8 +18,6 @@
 */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 
 namespace WindowsFormsCalendar
@@ -31,15 +29,15 @@ namespace WindowsFormsCalendar
         : ICalendarSelectableElement
     {
         #region Fields
-        
+
         private Calendar _calendar;
-        
+
         private Rectangle _bounds;
-        
+
         private DateTime _date;
-        
+
         private bool _selected;
-        
+
         #endregion
 
         /// <summary>

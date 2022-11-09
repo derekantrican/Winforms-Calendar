@@ -17,9 +17,6 @@
     along with indowsFormsCalendar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -204,13 +201,13 @@ namespace WindowsFormsCalendar
         /// </summary>
         public Size TextSize
         {
-            get 
+            get
             {
                 if (_textSize.IsEmpty)
                 {
                     _textSize = TextRenderer.MeasureText(Text, Font);
                 }
-                return _textSize; 
+                return _textSize;
             }
         }
 
@@ -224,7 +221,7 @@ namespace WindowsFormsCalendar
             set { _textColor = value; }
         }
 
-        
+
 
         #endregion
 

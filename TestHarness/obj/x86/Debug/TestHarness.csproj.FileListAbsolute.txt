@@ -1,0 +1,14 @@
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\TestHarness\bin\Debug\TestHarness.exe.config
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\TestHarness\bin\Debug\TestHarness.exe
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\TestHarness\bin\Debug\TestHarness.pdb
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\TestHarness\bin\Debug\WindowsFormsCalendar.dll
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\TestHarness\bin\Debug\WindowsFormsCalendar.pdb
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.csproj.AssemblyReference.cache
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.csproj.SuggestedBindingRedirects.cache
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.Form1.resources
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.Properties.Resources.resources
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.csproj.GenerateResource.cache
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.csproj.CoreCompileInputs.cache
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.csproj.CopyComplete
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.exe
+C:\Users\epapadakis\Documents\GitHub\Calendar\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.pdb

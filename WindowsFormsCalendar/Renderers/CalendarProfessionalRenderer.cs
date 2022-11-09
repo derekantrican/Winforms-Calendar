@@ -17,9 +17,6 @@
     along with indowsFormsCalendar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
@@ -82,32 +79,45 @@ namespace WindowsFormsCalendar
         public CalendarProfessionalRenderer(Calendar c)
             : base(c)
         {
-            
-            ColorTable.Background = FromHex("#E3EFFF");
-            ColorTable.DayBackgroundEven = FromHex("#A5BFE1");
-            ColorTable.DayBackgroundOdd = FromHex("#FFFFFF");
-            ColorTable.DayBackgroundSelected = FromHex("#E6EDF7");
-            ColorTable.DayBorder = FromHex("#5D8CC9");
+
+            ColorTable.Background = FromHex("#E3EFFF"); //background of calendar
+            ColorTable.DayBackgroundEven = FromHex("#FFFFFF"); // background of days for every even month. Supported view: Month
+            ColorTable.DayBackgroundOdd = FromHex("#FFFFFF"); // background of days for every odd month. Supported view: Month
+            ColorTable.DayBackgroundSelected = FromHex("#E6EDF7"); // background of selected day. Supported view: Month
+            ColorTable.DayBorder = FromHex("#bfbfbf"); // border of days
             ColorTable.DayHeaderBackground = FromHex("#DFE8F5");
-            ColorTable.DayHeaderText = Color.Black;
-            ColorTable.DayHeaderSecondaryText = Color.Black;
-            ColorTable.DayTopBorder = FromHex("#5D8CC9");
-            ColorTable.DayTopSelectedBorder = FromHex("#5D8CC9");
-            ColorTable.DayTopBackground = FromHex("#A5BFE1");
-            ColorTable.DayTopSelectedBackground = FromHex("#294C7A");
+            ColorTable.DayHeaderText = Color.Black; // unused
+            ColorTable.DayHeaderSecondaryText = Color.Black; // unused
+
+            //gap bellow week names. Support views: day, workweek, week
+            ColorTable.DayTopBorder = FromHex("#5D8CC9"); // border
+            ColorTable.DayTopSelectedBorder = FromHex("#5D8CC9");// border of selected gaps
+            ColorTable.DayTopBackground = FromHex("#A5BFE1"); // background of gap
+            ColorTable.DayTopSelectedBackground = FromHex("#294C7A"); // background of selected gaps
+
+            // calendar event item
             ColorTable.ItemBorder = FromHex("#5D8CC9");
-            ColorTable.ItemBackground = FromHex("#C0D3EA");
+            ColorTable.ItemBackground = FromHex("#66b3ff");
             ColorTable.ItemText = Color.Black;
             ColorTable.ItemSecondaryText = FromHex("#294C7A");
             ColorTable.ItemSelectedBorder = Color.Black;
             ColorTable.ItemSelectedBackground = FromHex("#C0D3EA");
             ColorTable.ItemSelectedText = Color.Black;
+            ItemRoundness = 3;
+
+            // in month view, the items from the left of each week
             ColorTable.WeekHeaderBackground = FromHex("#DFE8F5");
             ColorTable.WeekHeaderBorder = FromHex("#5D8CC9");
             ColorTable.WeekHeaderText = FromHex("#5D8CC9");
-            ColorTable.TodayBorder = FromHex("#EE9311");
-            ColorTable.TodayTopBackground = FromHex("#EE9311");
-            ColorTable.TimeScaleLine = FromHex("#6593CF");
+            ColorTable.WeekDayName = Color.Black;
+
+            //today
+            ColorTable.TodayBorder = FromHex("#0072c6");
+            // this will be used if and only if the CalendarProfessionalRenderer::OnDrawDayHeaderBackground is removed
+            ColorTable.TodayTopBackground = FromHex("#0072c6");
+
+            //for each day, the hours items
+            ColorTable.TimeScaleLine = FromHex("#6593CF");  // top border of hours
             ColorTable.TimeScaleHours = FromHex("#6593CF");
             ColorTable.TimeScaleMinutes = FromHex("#6593CF");
             ColorTable.TimeUnitBackground = FromHex("#E6EDF7");
@@ -115,10 +125,8 @@ namespace WindowsFormsCalendar
             ColorTable.TimeUnitSelectedBackground = FromHex("#294C7A");
             ColorTable.TimeUnitBorderLight = FromHex("#D5E1F1");
             ColorTable.TimeUnitBorderDark = FromHex("#A5BFE1");
-            ColorTable.WeekDayName = FromHex("#6593CF");
 
             SelectedItemBorder = 2f;
-            ItemRoundness = 5;
         }
 
         #region Private Method
@@ -186,7 +194,8 @@ namespace WindowsFormsCalendar
         /// Raises the <see cref="E:DrawDayHeaderBackground"/> event.
         /// </summary>
         /// <param name="e">The <see cref="WindowsFormsCalendar.CalendarRendererDayEventArgs"/> instance containing the event data.</param>
-        public override void OnDrawDayHeaderBackground(CalendarRendererDayEventArgs e)
+        /// Remove comments to draw a glossy background of each days header
+        /*public override void OnDrawDayHeaderBackground(CalendarRendererDayEventArgs e)
         {
             Rectangle r = e.Day.HeaderBounds;
 
@@ -205,9 +214,9 @@ namespace WindowsFormsCalendar
                 {
                     e.Graphics.DrawLine(p, r.Left, r.Top, r.Right, r.Top);
                     e.Graphics.DrawLine(p, r.Left, r.Bottom, r.Right, r.Bottom);
-                } 
+                }
             }
-        }
+        }*/
 
         /// <summary>
         /// Raises the <see cref="E:DrawItemBorder"/> event.
@@ -219,18 +228,16 @@ namespace WindowsFormsCalendar
 
             using (Pen p = new Pen(Color.FromArgb(150, Color.White)))
             {
-                e.Graphics.DrawLine(p, e.Bounds.Left + ItemRoundness, e.Bounds.Top + 1, e.Bounds.Right - ItemRoundness, e.Bounds.Top + 1); 
+                e.Graphics.DrawLine(p, e.Bounds.Left + ItemRoundness, e.Bounds.Top + 1, e.Bounds.Right - ItemRoundness, e.Bounds.Top + 1);
             }
 
             if (e.Item.Selected && !e.Item.IsDragging)
             {
-                bool horizontal = false;
-                bool vertical = false;
                 Rectangle r1 = new Rectangle(0, 0, 5, 5);
                 Rectangle r2 = new Rectangle(0, 0, 5, 5);
 
-                horizontal = e.Item.IsOnDayTop;
-                vertical = !e.Item.IsOnDayTop && e.Calendar.DaysMode == CalendarDaysMode.Expanded;
+                bool horizontal = e.Item.IsOnDayTop;
+                bool vertical = !e.Item.IsOnDayTop && e.Calendar.DaysMode == CalendarDaysMode.Expanded;
 
                 if (horizontal)
                 {
@@ -261,7 +268,7 @@ namespace WindowsFormsCalendar
                         e.Graphics.FillRectangle(Brushes.White, r2);
                         e.Graphics.DrawRectangle(Pens.Black, r2);
                     }
-                } 
+                }
             }
         }
 

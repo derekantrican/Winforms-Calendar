@@ -17,10 +17,6 @@
     along with indowsFormsCalendar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsCalendar
@@ -34,7 +30,7 @@ namespace WindowsFormsCalendar
         #region Fields
 
         private Calendar _calendar;
-        
+
         #endregion
 
         #region Properties
@@ -53,7 +49,7 @@ namespace WindowsFormsCalendar
         /// Creates a new <see cref="CalendarTextBox"/> for the specified <see cref="Calendar"/>
         /// </summary>
         /// <param name="calendar">Calendar where this control lives</param>
-        public CalendarTextBox( Calendar calendar )
+        public CalendarTextBox(Calendar calendar)
         {
             _calendar = calendar;
             this.Font = _calendar.ItemsFont;

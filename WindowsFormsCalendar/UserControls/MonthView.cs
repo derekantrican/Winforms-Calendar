@@ -18,8 +18,6 @@
 */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -85,7 +83,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets the size of days rectangles
         /// </summary>
-        [DesignerSerializationVisibility( DesignerSerializationVisibility.Hidden )]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Size DaySize
         {
             get { return _daySize; }
@@ -94,7 +92,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets or sets the format of day names
         /// </summary>
-        [DefaultValue( "ddd" )]
+        [DefaultValue("ddd")]
         public string DayNamesFormat
         {
             get { return _dayNamesFormat; }
@@ -104,7 +102,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets or sets a value indicating if day names should be visible
         /// </summary>
-        [DefaultValue( true )]
+        [DefaultValue(true)]
         public bool DayNamesVisible
         {
             get { return _dayNamesVisible; }
@@ -114,7 +112,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets or sets how many characters of day names should be displayed
         /// </summary>
-        [DefaultValue( 2 )]
+        [DefaultValue(2)]
         public int DayNamesLength
         {
             get { return _dayNamesLength; }
@@ -124,7 +122,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets or sets what the first day of weeks should be
         /// </summary>
-        [DefaultValue( DayOfWeek.Sunday )]
+        [DefaultValue(DayOfWeek.Sunday)]
         public DayOfWeek FirstDayOfWeek
         {
             get { return _weekStart; }
@@ -134,7 +132,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets a value indicating if the backward button is selected
         /// </summary>
-        [DesignerSerializationVisibility( DesignerSerializationVisibility.Hidden )]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool BackwardButtonSelected
         {
             get { return _backwardButtonSelected; }
@@ -143,7 +141,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets the bounds of the backward button
         /// </summary>
-        [DesignerSerializationVisibility( DesignerSerializationVisibility.Hidden )]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Rectangle BackwardButtonBounds
         {
             get { return _backwardButtonBounds; }
@@ -152,7 +150,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets a value indicating if the forward button is selected
         /// </summary>
-        [DesignerSerializationVisibility( DesignerSerializationVisibility.Hidden )]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool ForwardButtonSelected
         {
             get { return _forwardButtonSelected; }
@@ -161,7 +159,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets the bounds of the forward button
         /// </summary>
-        [DesignerSerializationVisibility( DesignerSerializationVisibility.Hidden )]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Rectangle ForwardButtonBounds
         {
             get { return _forwardButtonBounds; }
@@ -197,7 +195,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets or sets the maximum selection count of days
         /// </summary>
-        [DefaultValue( 0 )]
+        [DefaultValue(0)]
         public int MaxSelectionCount
         {
             get { return _maxSelectionCount; }
@@ -207,7 +205,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets the Months currently displayed on the calendar
         /// </summary>
-        [DesignerSerializationVisibility( DesignerSerializationVisibility.Hidden )]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public MonthViewMonth[] Months
         {
             get { return _months; }
@@ -216,7 +214,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets the size of an entire month inside the <see cref="MonthView"/>
         /// </summary>
-        [DesignerSerializationVisibility( DesignerSerializationVisibility.Hidden )]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Size MonthSize
         {
             get { return _monthSize; }
@@ -225,7 +223,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets or sets the format of month titles
         /// </summary>
-        [DefaultValue( "MMMM yyyy" )]
+        [DefaultValue("MMMM yyyy")]
         public string MonthTitleFormat
         {
             get { return _monthTitleFormat; }
@@ -235,15 +233,15 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets or sets the start of selection
         /// </summary>
-        [DesignerSerializationVisibility( DesignerSerializationVisibility.Hidden )]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public DateTime SelectionStart
         {
             get { return _selectionStart; }
             set
             {
-                if( MaxSelectionCount > 0 )
+                if (MaxSelectionCount > 0)
                 {
-                    if( Math.Abs( value.Subtract( SelectionEnd ).TotalDays ) >= MaxSelectionCount )
+                    if (Math.Abs(value.Subtract(SelectionEnd).TotalDays) >= MaxSelectionCount)
                     {
                         return;
                     }
@@ -251,37 +249,37 @@ namespace WindowsFormsCalendar
 
                 _selectionStart = value;
                 Invalidate();
-                OnSelectionChanged( EventArgs.Empty );
+                OnSelectionChanged(EventArgs.Empty);
             }
         }
 
         /// <summary>
         /// Gets or sets the end of selection
         /// </summary>
-        [DesignerSerializationVisibility( DesignerSerializationVisibility.Hidden )]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public DateTime SelectionEnd
         {
             get { return _selectionEnd; }
             set
             {
-                if( MaxSelectionCount > 0 )
+                if (MaxSelectionCount > 0)
                 {
-                    if( Math.Abs( value.Subtract( SelectionStart ).TotalDays ) >= MaxSelectionCount )
+                    if (Math.Abs(value.Subtract(SelectionStart).TotalDays) >= MaxSelectionCount)
                     {
                         return;
                     }
                 }
 
-                _selectionEnd = value.Date.Add( new TimeSpan( 23, 59, 59 ) );
+                _selectionEnd = value.Date.Add(new TimeSpan(23, 59, 59));
                 Invalidate();
-                OnSelectionChanged( EventArgs.Empty );
+                OnSelectionChanged(EventArgs.Empty);
             }
         }
 
         /// <summary>
         /// Gets or sets the selection mode of <see cref="MonthView"/>
         /// </summary>
-        [DefaultValue( MonthViewSelection.Manual )]
+        [DefaultValue(MonthViewSelection.Manual)]
         public MonthViewSelection SelectionMode
         {
             get { return _selectionMode; }
@@ -291,7 +289,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets or sets the date of the first displayed month
         /// </summary>
-        [DesignerSerializationVisibility( DesignerSerializationVisibility.Hidden )]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public DateTime ViewStart
         {
             get { return _viewStart; }
@@ -306,14 +304,14 @@ namespace WindowsFormsCalendar
             get
             {
                 DateTime month = Months[Months.Length - 1].Date;
-                return month.Date.AddDays( DateTime.DaysInMonth( month.Year, month.Month ) );
+                return month.Date.AddDays(DateTime.DaysInMonth(month.Year, month.Month));
             }
         }
 
         /// <summary>
         /// Gets or sets the day that starts a work-week
         /// </summary>
-        [DefaultValue( DayOfWeek.Monday )]
+        [DefaultValue(DayOfWeek.Monday)]
         public DayOfWeek WorkWeekStart
         {
             get { return _workWeekStart; }
@@ -323,7 +321,7 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Gets or sets the day that ends a work-week
         /// </summary>
-        [DefaultValue( DayOfWeek.Friday )]
+        [DefaultValue(DayOfWeek.Friday)]
         public DayOfWeek WorkWeekEnd
         {
             get { return _workWeekEnd; }
@@ -702,8 +700,8 @@ namespace WindowsFormsCalendar
         private void UpdateMonths()
         {
             int gapping = 2;
-            int calendarsX = Convert.ToInt32(Math.Max(Math.Floor((double)ClientSize.Width / (double)(MonthSize.Width + gapping)), 1.0));
-            int calendarsY = Convert.ToInt32(Math.Max(Math.Floor((double)ClientSize.Height / (double)(MonthSize.Height + gapping)), 1.0));
+            int calendarsX = Convert.ToInt32(Math.Max(Math.Floor(ClientSize.Width / (double)(MonthSize.Width + gapping)), 1.0));
+            int calendarsY = Convert.ToInt32(Math.Max(Math.Floor(ClientSize.Height / (double)(MonthSize.Height + gapping)), 1.0));
             int calendars = calendarsX * calendarsY;
             int monthsWidth = (calendarsX * MonthSize.Width) + (calendarsX - 1) * gapping;
             int monthsHeight = (calendarsY * MonthSize.Height) + (calendarsY - 1) * gapping;
@@ -730,10 +728,10 @@ namespace WindowsFormsCalendar
             }
 
             MonthViewMonth first = Months[0];
-            MonthViewMonth last = Months[_forwardMonthIndex];
+            _ = Months[_forwardMonthIndex];
 
             SetBackwardButtonBounds(new Rectangle(first.Bounds.Left + ItemPadding.Left, first.Bounds.Top + ItemPadding.Top, DaySize.Height - ItemPadding.Horizontal, DaySize.Height - ItemPadding.Vertical));
-            SetForwardButtonBounds(new Rectangle(first.Bounds.Right - ItemPadding.Right - BackwardButtonBounds.Width, first.Bounds.Top + ItemPadding.Top, BackwardButtonBounds.Width, BackwardButtonBounds.Height ));
+            SetForwardButtonBounds(new Rectangle(first.Bounds.Right - ItemPadding.Right - BackwardButtonBounds.Width, first.Bounds.Top + ItemPadding.Top, BackwardButtonBounds.Width, BackwardButtonBounds.Height));
         }
 
         #endregion
@@ -759,7 +757,7 @@ namespace WindowsFormsCalendar
         {
             base.OnMouseDown(e);
 
-            Focus();
+            _ = Focus();
 
             _mouseDown = true;
 
@@ -970,7 +968,7 @@ namespace WindowsFormsCalendar
                         Rectangle r = BackwardButtonBounds;
                         using (Brush b = new SolidBrush(BackwardButtonSelected ? ArrowsSelectedColor : ArrowsColor))
                         {
-                            e.Graphics.FillPolygon(b, new Point[] { 
+                            e.Graphics.FillPolygon(b, new Point[] {
                                 new Point(r.Right, r.Top),
                                 new Point(r.Right, r.Bottom - 1),
                                 new Point(r.Left + r.Width / 2, r.Top + r.Height / 2),
@@ -983,7 +981,7 @@ namespace WindowsFormsCalendar
                         Rectangle r = ForwardButtonBounds;
                         using (Brush b = new SolidBrush(ForwardButtonSelected ? ArrowsSelectedColor : ArrowsColor))
                         {
-                            e.Graphics.FillPolygon(b, new Point[] { 
+                            e.Graphics.FillPolygon(b, new Point[] {
                                 new Point(r.X, r.Top),
                                 new Point(r.X, r.Bottom - 1),
                                 new Point(r.Left + r.Width / 2, r.Top + r.Height / 2),

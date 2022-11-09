@@ -18,8 +18,6 @@
 */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 
 namespace WindowsFormsCalendar
@@ -96,7 +94,7 @@ namespace WindowsFormsCalendar
         {
             get
             {
-                return !( Grayed && ( Date > MonthView.ViewStart && Date < MonthView.ViewEnd ) );
+                return !(Grayed && (Date > MonthView.ViewStart && Date < MonthView.ViewEnd));
             }
         }
 
@@ -113,7 +111,7 @@ namespace WindowsFormsCalendar
             _monthView = month.MonthView;
             _date = date;
 
-            
+
         }
 
         #region Methods
