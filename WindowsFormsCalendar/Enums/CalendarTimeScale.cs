@@ -56,6 +56,11 @@ namespace WindowsFormsCalendar
         /// <summary>
         /// Makes calendar show intervals of 5 minutes
         /// </summary>
-        FiveMinutes = 5
+        FiveMinutes = 5,
+
+        /// <summary>
+        /// Makes calendar show intervals of 1 minute
+        /// </summary>
+        OneMinute = 1
     }
 }

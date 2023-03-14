@@ -1,0 +1,12 @@
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\TestHarness\bin\Debug\TestHarness.exe
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\TestHarness\bin\Debug\TestHarness.pdb
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\TestHarness\bin\Debug\WindowsFormsCalendar.dll
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\TestHarness\bin\Debug\WindowsFormsCalendar.pdb
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.csproj.AssemblyReference.cache
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.Form1.resources
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.Properties.Resources.resources
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.csproj.GenerateResource.cache
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.csproj.CoreCompileInputs.cache
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.csproj.CopyComplete
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.exe
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\TestHarness\obj\x86\Debug\TestHarness.pdb

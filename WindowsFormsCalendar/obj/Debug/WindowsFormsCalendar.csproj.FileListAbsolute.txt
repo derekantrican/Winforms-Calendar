@@ -1,0 +1,6 @@
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\WindowsFormsCalendar\bin\Debug\WindowsFormsCalendar.dll
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\WindowsFormsCalendar\bin\Debug\WindowsFormsCalendar.pdb
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\WindowsFormsCalendar\obj\Debug\WindowsFormsCalendar.csproj.AssemblyReference.cache
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\WindowsFormsCalendar\obj\Debug\WindowsFormsCalendar.csproj.CoreCompileInputs.cache
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\WindowsFormsCalendar\obj\Debug\WindowsFormsCalendar.dll
+D:\Projects.C#\sampleCalendarMyFork\Winforms-Calendar\WindowsFormsCalendar\obj\Debug\WindowsFormsCalendar.pdb

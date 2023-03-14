@@ -285,12 +285,13 @@ namespace WindowsFormsCalendar
 
             switch (Calendar.TimeScale)
             {
-                case CalendarTimeScale.SixtyMinutes:    factor = 1;     break;
-                case CalendarTimeScale.ThirtyMinutes:   factor = 2;     break;
-                case CalendarTimeScale.FifteenMinutes:  factor = 4;     break;
-                case CalendarTimeScale.TenMinutes:      factor = 6;     break;
-                case CalendarTimeScale.SixMinutes:      factor = 10;    break;
-                case CalendarTimeScale.FiveMinutes:     factor = 12;    break;
+                case CalendarTimeScale.SixtyMinutes:
+                case CalendarTimeScale.ThirtyMinutes:
+                case CalendarTimeScale.FifteenMinutes:
+                case CalendarTimeScale.TenMinutes:
+                case CalendarTimeScale.SixMinutes:
+                case CalendarTimeScale.FiveMinutes:
+                case CalendarTimeScale.OneMinute: factor = 60 / ((int)Calendar.TimeScale); break;
                 default: throw new NotImplementedException("TimeScale not supported");
             }
 
