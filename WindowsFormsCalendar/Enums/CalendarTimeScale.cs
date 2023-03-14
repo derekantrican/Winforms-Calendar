@@ -58,7 +58,9 @@ namespace WindowsFormsCalendar
         /// </summary>
         FiveMinutes = 5,
 
-        //ajoutRudy
+        /// <summary>
+        /// Makes calendar show intervals of 1 minute
+        /// </summary>
         OneMinute = 1
     }
 }

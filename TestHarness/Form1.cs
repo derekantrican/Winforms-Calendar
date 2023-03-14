@@ -73,9 +73,7 @@ namespace TestHarness
         {
             this.calendar1.SetViewRange(this.monthView1.SelectionStart.Date, this.monthView1.SelectionEnd.Date);
         }
-        //[Description( "Occurs when an item has been created." )]
-        //public event CalendarItemCancelEventHandler ItemCreated;
-        //public delegate void CalendarItemCancelEventHandler( object sender, CalendarItemCancelEventArgs e );
+        
         private void calendar1_ItemCreated(object sender, CalendarItemCancelEventArgs e)
         {
             _items.Add(e.Item);
