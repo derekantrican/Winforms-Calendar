@@ -1,4 +1,6 @@
-﻿namespace TestHarness
+﻿using System;
+
+namespace TestHarness
 {
     partial class Form1
     {
@@ -11,13 +13,13 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose( bool disposing )
+        protected override void Dispose(bool disposing)
         {
-            if( disposing && ( components != null ) )
+            if (disposing && (components != null))
             {
                 components.Dispose();
             }
-            base.Dispose( disposing );
+            base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
@@ -30,9 +32,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.monthView1 = new WindowsFormsCalendar.MonthView();
             this.calendar1 = new WindowsFormsCalendar.Calendar();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -96,6 +98,14 @@
             this.calendar1.TabIndex = 0;
             this.calendar1.Text = "calendar1";
             this.calendar1.LoadItems += new WindowsFormsCalendar.Calendar.CalendarLoadEventHandler(this.calendar1_LoadItems);
+            this.calendar1.ItemCreated += new WindowsFormsCalendar.Calendar.CalendarItemCancelEventHandler(this.calendar1_ItemCreated);
+
+            this.calendar1.TimeScale = WindowsFormsCalendar.CalendarTimeScale.OneMinute;
+            //this.calendar1.TimeScale = WindowsFormsCalendar.CalendarTimeScale.FiveMinutes;
+            DateTime startT = new DateTime(2023, 03, 06, 15, 45, 00);
+            DateTime endT = new DateTime(2023, 03, 12, 16, 45, 00);
+            this.calendar1.ViewStart = startT;
+            this.calendar1.ViewEnd = endT;
             // 
             // Form1
             // 
